@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guntur Voter Search 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #102b50;
+  --blue: #1d4ed8;
+  --bg: #f3f6fb;
+  --border: #e1e7f0;
+  --text: #17243a;
+  --muted: #68778d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Noto Sans Telugu", sans-serif;
+}
+header {
+  background: var(--navy);
+  color: white;
+  padding: 25px 18px 32px;
+}
+.header-inner, main {
+  max-width: 850px;
+  margin: auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #ffffff70;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+.brand h1 { font-size: 19px; margin: 0 0 5px; }
+.brand p { margin: 0; color: #d3e1f7; font-size: 12px; }
+.hero { margin-top: 30px; }
+.hero h2 { font-size: 26px; margin: 0 0 8px; }
+.hero p { color: #d3e1f7; margin: 0; font-size: 14px; }
+main { padding: 22px 14px 40px; }
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 5px 20px #19365a08;
+}
+.panel h3 { margin: 0 0 7px; font-size: 18px; }
+.sub { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin: 20px 0;
+}
+.option {
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 13px 7px;
+  background: white;
+  cursor: pointer;
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.option.active {
+  border: 2px solid var(--blue);
+  background: #eff5ff;
+  color: #1745a1;
+  font-weight: 700;
+}
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 14px;
+  font: inherit;
+  font-size: 15px;
+  outline: none;
+  background: white;
+}
+input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #1d4ed81a;
+}
+.search-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.search-btn:active { opacity: .85; }
+#message {
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #526176;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.results { margin-top: 20px; }
+.result-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 17px;
+  margin-top: 12px;
+}
+.result-card h4 { margin: 0 0 14px; }
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.detail { min-width: 0; }
+.detail small { display: block; color: var(--muted); margin-bottom: 5px; }
+.detail strong { font-size: 13px; overflow-wrap: anywhere; }
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media(max-width:480px) {
+  .options { gap: 6px; }
+  .option { font-size: 11px; padding: 10px 4px; }
+  .panel { padding: 15px; }
+  .hero h2 { font-size: 22px; }
+  .details { grid-template-columns: 1fr 1fr; gap: 13px 8px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">🗳️</div>
+      <div>
+        <h1>గుంటూరు ఓటరు శోధన</h1>
+        <p>GUNTUR VOTER SEARCH · 2026</p>
+      </div>
+    </div>
+    <div class="hero">
+      <h2>ఓటరు వివరాలను వెతకండి</h2>
+      <p>Search voter details using the available information.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="panel">
+    <h3>ఓటరు శోధన / Voter Search</h3>
+    <div class="sub">మీకు తెలిసిన వివరాల ఆధారంగా ఒక సెర్చ్ విధానాన్ని ఎంచుకోండి.</div>
+
+    <div class="options">
+      <button class="option active" data-type="name">
+        👤<br>పేరు + బంధువు పేరు<br>Name + Relative
+      </button>
+      <button class="option" data-type="door">
+        🏠<br>ఇంటి నంబరు<br>Door Number
+      </button>
+      <button class="option" data-type="epic">
+        🪪<br>ఓటరు ID<br>EPIC Number
+      </button>
+    </div>
+
+    <form id="searchForm">
+      <div id="nameFields">
+        <label for="voterName">ఓటరు పేరు / Voter Name</label>
+        <input id="voterName" placeholder="ఓటరు పేరును నమోదు చేయండి">
+
+        <div style="height:14px"></div>
+
+        <label for="relativeName">తండ్రి / భర్త పేరు / Relative Name</label>
+        <input id="relativeName" placeholder="బంధువు పేరును నమోదు చేయండి">
+      </div>
+
+      <div id="singleField" hidden>
+        <label id="singleLabel" for="singleInput">వివరాలు</label>
+        <input id="singleInput" placeholder="వివరాలను నమోదు చేయండి">
+      </div>
+
+      <button class="search-btn" type="submit">🔍 సెర్చ్ చేయండి / Search</button>
+    </form>
+
+    <div id="message" role="status" aria-live="polite">
+      సెర్చ్ చేయడానికి పైన ఒక ఆప్షన్ ఎంచుకోండి.
+    </div>
+  </section>
+
+  <section class="results" id="results"></section>
+</main>
+
+<footer>
+  Guntur Voter Search · 2026<br>
+  ఈ వెబ్‌సైట్‌లో చూపించే వివరాలు అనుసంధానించిన మూల డేటా ఆధారంగా మాత్రమే వస్తాయి.
+</footer>
+
+<script>
+/*
+తర్వాత మీ PDFల నుంచి ధృవీకరించిన వివరాలను
+డేటాబేస్‌తో అనుసంధానం చేస్తాం.
+ప్రస్తుతానికి నిజమైన ఓటరు డేటా జోడించలేదు.
+*/
+const voters = [];
+
+let searchType = "name";
+
+const options = document.querySelectorAll(".option");
+const nameFields = document.getElementById("nameFields");
+const singleField = document.getElementById("singleField");
+const singleLabel = document.getElementById("singleLabel");
+const singleInput = document.getElementById("singleInput");
+const message = document.getElementById("message");
+const results = document.getElementById("results");
+
+const config = {
+  name: {
+    label: "ఓటరు పేరు / Voter Name",
+    placeholder: "ఓటరు పేరు నమోదు చేయండి"
+  },
+  door: {
+    label: "ఇంటి నంబరు / Door Number",
+    placeholder: "ఉదా: 20-5-704"
+  },
+  epic: {
+    label: "ఓటరు ID / EPIC Number",
+    placeholder: "EPIC నంబరు నమోదు చేయండి"
+  }
+};
+
+options.forEach(button => {
+  button.addEventListener("click", () => {
+    searchType = button.dataset.type;
+
+    options.forEach(item => {
+      item.classList.toggle("active", item === button);
+    });
+
+    nameFields.hidden = searchType !== "name";
+    singleField.hidden = searchType === "name";
+
+    if (searchType !== "name") {
+      singleLabel.textContent = config[searchType].label;
+      singleInput.placeholder = config[searchType].placeholder;
+    }
+
+    message.textContent = "మీ సెర్చ్ వివరాలను నమోదు చేయండి.";
+    results.replaceChildren();
+  });
+});
+
+function normalize(value) {
+  return String(value || "")
+    .trim()
+    .toLocaleLowerCase("te-IN")
+    .replace(/\s+/g, " ");
+}
+
+function addDetail(container, label, value) {
+  const item = document.createElement("div");
+  item.className = "detail";
+
+  const small = document.createElement("small");
+  small.textContent = label;
+
+  const strong = document.createElement("strong");
+  strong.textContent = value || "లభ్యం కాదు";
+
+  item.append(small, strong);
+  container.appendChild(item);
+}
+
+function showVoter(voter) {
+  const card = document.createElement("article");
+  card.className = "result-card";
+
+  const heading = document.createElement("h4");
+  heading.textContent = "ఓటరు వివరాలు";
+  card.appendChild(heading);
+
+  const details = document.createElement("div");
+  details.className = "details";
+
+  addDetail(details, "ఓటరు వరుస నంబరు", voter.serial);
+  addDetail(details, "ఓటరు పేరు", voter.name);
+  addDetail(details, "బంధువు పేరు", voter.relative);
+  addDetail(details, "వయస్సు", voter.age);
+  addDetail(details, "లింగం", voter.gender);
+  addDetail(details, "ఇంటి నంబరు", voter.door);
+  addDetail(details, "EPIC నంబరు", voter.epic);
+  addDetail(details, "పార్ట్ నంబరు", voter.part);
+  addDetail(details, "PDF పేజీ", voter.page);
+
+  card.appendChild(details);
+  results.appendChild(card);
+}
+
+document.getElementById("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+  results.replaceChildren();
+
+  let matches = [];
+
+  if (searchType === "name") {
+    const name = normalize(document.getElementById("voterName").value);
+    const relative = normalize(document.getElementById("relativeName").value);
+
+    if (!name && !relative) {
+      message.textContent = "ఓటరు పేరు లేదా బంధువు పేరు నమోదు చేయండి.";
+      return;
+    }
+
+    matches = voters.filter(voter =>
+      (!name || normalize(voter.name).includes(name)) &&
+      (!relative || normalize(voter.relative).includes(relative))
+    );
+  } else {
+    const query = normalize(singleInput.value);
+
+    if (!query) {
+      message.textContent = "సెర్చ్ వివరాలను నమోదు చేయండి.";
+      return;
+    }
+
+    matches = voters.filter(voter => {
+      if (searchType === "door") {
+        return normalize(voter.door) === query;
+      }
+
+      return normalize(voter.epic) === query;
+    });
+  }
+
+  if (matches.length === 0) {
+    message.textContent =
+      voters.length === 0
+        ? "ఇంకా PDF డేటా అనుసంధానం కాలేదు. PDF డేటాబేస్ సిద్ధమైన తర్వాత నిజమైన ఫలితాలు కనిపిస్తాయి."
+        : "సరిపోలిన వివరాలు లభించలేదు. నమోదు చేసిన వివరాలను తనిఖీ చేయండి.";
+    return;
+  }
+
+  message.textContent = "సరిపోలిన ఫలితాలు: " + matches.length;
+  matches.forEach(showVoter);
+});
+</script>
+
+</body>
+      </html>
